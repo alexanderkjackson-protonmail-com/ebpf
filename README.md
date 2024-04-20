@@ -16,3 +16,7 @@ copy from the respective cmake build directory or, if needed, add the argument
 ## libbpf
 Create/enter a build directory and run:
 ``cmake -D CMAKE_C_COMPILER=clang ..`` followed by ``make``
+## Debugging
+``bpftool`` is useful for checking programs loaded and maps. Ensure that debugfs
+is mounted. Run: ``sudo mount -t debugfs debugfs /sys/kernel/debug`` if not.
+``sudo cat /sys/kernel/debug/tracing/trace_pipe`` to watch bpf_printk() output.
