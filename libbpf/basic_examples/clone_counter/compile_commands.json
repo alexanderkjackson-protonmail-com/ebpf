@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/user/src/ebpf/libbpf/basic_examples/clone_counter/build",
+  "command": "/usr/bin/clang   -std=gnu11 -O2 -target bpf -o CMakeFiles/clone_counter.dir/clone_counter.c.o -c /home/user/src/ebpf/libbpf/basic_examples/clone_counter/clone_counter.c",
+  "file": "/home/user/src/ebpf/libbpf/basic_examples/clone_counter/clone_counter.c",
+  "output": "CMakeFiles/clone_counter.dir/clone_counter.c.o"
+},
+{
+  "directory": "/home/user/src/ebpf/libbpf/basic_examples/clone_counter/build",
+  "command": "/usr/bin/clang   -std=gnu11 -o CMakeFiles/loader.dir/loader.c.o -c /home/user/src/ebpf/libbpf/basic_examples/clone_counter/loader.c",
+  "file": "/home/user/src/ebpf/libbpf/basic_examples/clone_counter/loader.c",
+  "output": "CMakeFiles/loader.dir/loader.c.o"
+}
+]
