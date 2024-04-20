@@ -20,17 +20,17 @@ include_directories(${LIBBPF_INCLUDE_DIRS})
 link_directories(${LIBBPF_LIBRARY_DIRS})
 
 # Target for the eBPF program
-add_library(clone_counter OBJECT clone_counter.c)
+add_library(clone_printer OBJECT clone_printer.c)
 
-add_custom_target(copy_clone_counter ALL
+add_custom_target(copy_ebpf_object ALL
     COMMAND ${CMAKE_COMMAND} -E copy 
-    $<TARGET_OBJECTS:clone_counter>
-    ${CMAKE_BINARY_DIR}/clone_counter.o
-    DEPENDS clone_counter)
+    $<TARGET_OBJECTS:clone_printer>
+    ${CMAKE_BINARY_DIR}/clone_printer.o
+    DEPENDS clone_printer)
 
 # Target for eBPF (compile only, no linking)
-target_compile_options(clone_counter PRIVATE -O2 -target bpf)
-set_target_properties(clone_counter PROPERTIES LINKER_LANGUAGE C)
+target_compile_options(clone_printer PRIVATE -O2 -target bpf)
+set_target_properties(clone_printer PROPERTIES LINKER_LANGUAGE C)
 
 # Target for the user-space loader program
 add_executable(loader loader.c)

@@ -18,7 +18,7 @@ int main(int argc, char **argv) {
     libbpf_set_print(libbpf_print_fn);
 
     // Load and verify BPF application
-    obj = bpf_object__open("clone_counter.o");
+    obj = bpf_object__open("clone_printer.o");
     if (libbpf_get_error(obj)) {
         fprintf(stderr, "Failed to open BPF object\n");
         return 1;
@@ -31,8 +31,11 @@ int main(int argc, char **argv) {
     }
 
     // Attach kprobe
-	//prog = bpf_object__find_program_by_title(obj, "kprobe/__x64_sys_clone");
-    prog = bpf_object__find_program_by_name(obj, "kprobe/__x64_sys_clone");
+    prog = bpf_object__find_program_by_name(obj, "clone_printer");
+    if (!prog) {
+        fprintf(stderr, "Failed to load eBPF program from object.\n");
+        return 1;
+    }
     link = bpf_program__attach(prog);
     if (libbpf_get_error(link)) {
         fprintf(stderr, "Failed to attach kprobe\n");
