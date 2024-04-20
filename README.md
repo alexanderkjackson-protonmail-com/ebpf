@@ -12,3 +12,7 @@ For each project, it is recommended to generate a compile_commands.json with
 cmake to enable language server access to that project's source code. Simply
 copy from the respective cmake build directory or, if needed, add the argument
 ``-DCMAKE_EXPORT_COMPILE_COMMANDS=ON`` when you run cmake. 
+# Building
+## libbpf
+Create/enter a build directory and run:
+``cmake -D CMAKE_C_COMPILER=clang ..`` followed by ``make``
