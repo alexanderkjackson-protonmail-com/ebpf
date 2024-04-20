@@ -1,2 +1,0 @@
-CompileFlags:
-  Add: [-I/usr/lib/modules/6.8.5-arch1-1/build]

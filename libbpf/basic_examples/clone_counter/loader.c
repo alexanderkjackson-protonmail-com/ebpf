@@ -1,7 +1,7 @@
 #include <bpf/libbpf.h>
 #include <bpf/bpf.h>
 #include <stdio.h>
-#include <stdlib.h>
+//#include <stdlib.h>
 #include <unistd.h>
 
 static int libbpf_print_fn(enum libbpf_print_level level, const char *format, va_list args) {
